@@ -110,12 +110,10 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = 'auto') {
+function getImage(src: string) {
     return `<img
         class="logo"
         alt="Generated Image"
         src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
     />`
 }

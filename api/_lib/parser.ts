@@ -30,7 +30,7 @@ export function parseRequest(req: IncomingMessage) {
 }
 
 function getDefaultImages(image: string): string {
-    if (image.length > 0) {
+    if (image !== '') {
         return image;
     }
     return 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png';

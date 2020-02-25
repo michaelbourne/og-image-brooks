@@ -1,4 +1,4 @@
-import { ParsedRequest, FileType, Layout } from '../api/_lib/types';
+import { ParsedRequest, FileType } from '../api/_lib/types';
 const { H, R, copee } = (window as any);
 let timeout = -1;
 
@@ -154,7 +154,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         text = '2017 Ara Riesling',
-        layout = 'wine',
+        layout = layoutType[0].value,
         image= imageLightOptions[0].value,
         showToast = false,
         messageToast = '',
@@ -165,6 +165,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
     url.searchParams.append('image', image);
+    url.searchParams.append('layout', layout);
 
     return H('div',
         { className: 'split' },

@@ -114,6 +114,9 @@ function getCss(layout = 'wine') {
         .image-wrapper {
             display: none;
         }
+        .image-wrapper img {
+            display: none;
+        }
         .heading {
             display: block;
             margin: 0 auto;
@@ -132,6 +135,12 @@ function getCss(layout = 'wine') {
         }
         .image-wrapper {
             display: none;
+        }
+        .image-wrapper img {
+            display: none;
+        }
+        .og {
+            text-align: center;
         }
         .heading {
             display: block;

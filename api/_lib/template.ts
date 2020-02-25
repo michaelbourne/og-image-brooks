@@ -82,7 +82,37 @@ function getCss(layout = 'wine') {
             text-align: left;
             margin-bottom: 10vh;
         }`;
-    } else {
+    } else if ( 'general' == layout ) {
+        return `
+        .og {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            flex: 0 1 25%;
+            text-align: center;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+        }
+
+        .heading {
+            flex: 0 1 68%;
+        }
+        .heading p {
+            text-align: center;
+            margin-bottom: 5vh;
+        }`;
+    } 
+    
+    else {
         return '';
     }
 }

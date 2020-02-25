@@ -215,7 +215,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Image 1',
+                    label: 'Image',
                     input: H('div',
                         H(Dropdown, {
                             options: imageOptions,
@@ -251,54 +251,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
                             })
                         )
                     ),
-                }),
-                ...images.slice(1).map((image, i) => H(Field, {
-                    label: `Image ${i + 2}`,
-                    input: H('div',
-                        H(TextInput, {
-                            value: image,
-                            oninput: (val: string) => {
-                                let clone = [...images];
-                                clone[i + 1] = val;
-                                setLoadingState({ images: clone, overrideUrl: url });
-                            }
-                        }),
-                        H('div',
-                            { className: 'field-flex' },
-                            H(Dropdown, {
-                                options: widthOptions,
-                                value: widths[i + 1],
-                                small: true,
-                                onchange: (val: string) =>  {
-                                    let clone = [...widths];
-                                    clone[i + 1] = val;
-                                    setLoadingState({ widths: clone });
-                                }
-                            }),
-                            H(Dropdown, {
-                                options: heightOptions,
-                                value: heights[i + 1],
-                                small: true,
-                                onchange: (val: string) =>  {
-                                    let clone = [...heights];
-                                    clone[i + 1] = val;
-                                    setLoadingState({ heights: clone });
-                                }
-                            })
-                        )
-                    )
-                })),
-                H(Field, {
-                    label: `Image ${images.length + 1}`,
-                    input: H(Button, {
-                        label: `Add Image ${images.length + 1}`,
-                        onclick: () => {
-                            const nextImage = images.length === 1
-                                ? 'https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg'
-                                : '';
-                            setLoadingState({ images: [...images, nextImage] })
-                        }
-                    }),
                 }),
             )
         ),

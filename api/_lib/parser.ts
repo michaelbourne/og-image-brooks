@@ -22,8 +22,8 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        image: decodeURIComponent(image),
-        layout: decodeURIComponent(layout),
+        image: decodeURIComponent(image) as string,
+        layout: decodeURIComponent(layout) as string,
     };
     parsedRequest.image = getDefaultImages(parsedRequest.image);
     return parsedRequest;

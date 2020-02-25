@@ -155,7 +155,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         fileType = 'png',
         text = '2017 Ara Riesling',
         layout = layoutType[0].value,
-        image= imageLightOptions[0].value,
+        image = imageLightOptions[0].value,
         showToast = false,
         messageToast = '',
         loading = true,

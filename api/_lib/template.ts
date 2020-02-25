@@ -44,17 +44,24 @@ function getCss() {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
     }
 
     .image-wrapper {
-        flex: 0 1 35%;
+        flex: 0 1 30%;
         text-align: center;
     }
 
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+    }
+
     .heading {
-        flex: 0 1 60%;
+        flex: 0 1 67%;
+    }
+    h1 {
         font-family: 'Modesto Open', serif;
         font-size: 130px;
         font-style: normal;
@@ -65,6 +72,7 @@ function getCss() {
         font-kerning: none;
         text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
         text-align: left;
+        margin-bottom: 10vh;
     }`;
 }
 
@@ -86,13 +94,13 @@ export function getHtml(parsedReq: ParsedRequest) {
                 ).join('')}
             </div>
 
-            <div class="heading">${sanitizeHtml(text)}</div>
+            <div class="heading"><h1>${sanitizeHtml(text)}</h1></div>
         </div>
     </body>
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '1150') {
+function getImage(src: string, width ='auto', height = 'auto') {
     return `<img
         class="logo"
         alt="Generated Image"

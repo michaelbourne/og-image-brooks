@@ -4,6 +4,7 @@ import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
 
 const big = readFileSync(`${__dirname}/../_fonts/modesto-open.woff2`).toString('base64');
+const bgimage = readFileSync(`${__dirname}/../_images/lightpaperfibers.png`).toString('base64');
 
 function getCss() {
     let background = 'white';
@@ -18,7 +19,7 @@ function getCss() {
 
     body {
         background: ${background};
-        background-image: url(../_images/lightpaperfibers.png);
+        background-image: url(${bgimage});
         background-repeat: repeat;
         height: 100vh;
         display: flex;
@@ -27,49 +28,23 @@ function getCss() {
         justify-content: center;
     }
 
-    code {
-        color: #D400FF;
-        font-family: 'Vera';
-        white-space: pre-wrap;
-        letter-spacing: -5px;
-    }
-
-    code:before, code:after {
-        content: '\`';
-    }
-
-    .logo-wrapper {
+    .og {
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
-        align-content: center;
-        justify-content: center;
-        justify-items: center;
+        justify-content: space-between;
+        width: 1200px;
     }
 
-    .logo {
-        margin: 0 75px;
+    .image-wrapper {
+        flex: 0 1 35%;
     }
-
-    .plus {
-        color: #BBB;
-        font-family: Times New Roman, Verdana;
-        font-size: 100px;
-    }
-
-    .spacer {
-        margin: 150px;
-    }
-
-    .emoji {
-        height: 1em;
-        width: 1em;
-        margin: 0 .05em 0 .1em;
-        vertical-align: -0.1em;
-    }
-    
+   
     .heading {
+        flex: 0 1 60%;
         font-family: 'Modesto Open', serif;
-        font-size: 60px;
+        font-size: 80px;
         font-style: normal;
         color: #981C20;
         line-height: 1.6;
@@ -91,16 +66,14 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss()}
     </style>
     <body>
-        <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
+        <div class="og">
+            <div class="image-wrapper">
                 ${images.map((img, i) =>
                     getPlusSign(i) + getImage(img, widths[i], heights[i])
                 ).join('')}
             </div>
-            <div class="spacer">
-            <div class="heading">${sanitizeHtml(text)}
-            </div>
+
+            <div class="heading">${sanitizeHtml(text)}</div>
         </div>
     </body>
 </html>`;

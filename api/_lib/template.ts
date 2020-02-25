@@ -31,17 +31,17 @@ function getCss() {
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
-        width: 1200px;
     }
 
     .image-wrapper {
         flex: 0 1 35%;
+        text-align: center;
     }
    
     .heading {
         flex: 0 1 60%;
         font-family: 'Modesto Open', serif;
-        font-size: 116px;
+        font-size: 130px;
         font-style: normal;
         color: #981C20;
         line-height: 1.15;
@@ -77,7 +77,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '1300') {
+function getImage(src: string, width ='auto', height = '1150') {
     return `<img
         class="logo"
         alt="Generated Image"

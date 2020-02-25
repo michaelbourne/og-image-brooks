@@ -5,7 +5,7 @@ import { ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname = '/', query = {} } = parse(req.url || '', true);
-    const { images, widths, heights } = query;
+    const { image, layout } = query;
   
     const arr = pathname.slice(1).split('.');
     let extension = '';
@@ -22,21 +22,16 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        images: getArray(images),
-        widths: getArray(widths),
-        heights: getArray(heights),
+        image: decodeURIComponent(image),
+        layout: decodeURIComponent(layout),
     };
-    parsedRequest.images = getDefaultImages(parsedRequest.images);
+    parsedRequest.image = getDefaultImages(parsedRequest.image);
     return parsedRequest;
 }
 
-function getArray(stringOrArray: string[] | string): string[] {
-    return Array.isArray(stringOrArray) ? stringOrArray : [stringOrArray];
-}
-
-function getDefaultImages(images: string[]): string[] {
-    if (images.length > 0) {
-        return images;
+function getDefaultImages(image: string): string {
+    if (image.length > 0) {
+        return image;
     }
-    return ['https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png'];
+    return 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png';
 }

@@ -1,4 +1,4 @@
-import { ParsedRequest, FileType } from '../api/_lib/types';
+import { ParsedRequest, FileType, Layout } from '../api/_lib/types';
 const { H, R, copee } = (window as any);
 let timeout = -1;
 
@@ -74,14 +74,6 @@ const TextInput = ({ value, oninput }: TextInputProps) => {
     );
 }
 
-interface ButtonProps {
-    label: string;
-    onclick: () => void;
-}
-
-const Button = ({ label, onclick }: ButtonProps) => {
-    return H('button', { onclick }, label);
-}
 
 interface FieldProps {
     label: string;
@@ -126,20 +118,15 @@ const fileTypeOptions: DropdownOption[] = [
     { text: 'JPEG', value: 'jpeg' },
 ];
 
+const layoutType: DropdownOption[] = [
+    { text: 'Wine', value: 'wine' },
+    { text: 'General', value: 'general' },
+    { text: 'Collection', value: 'collection' },
+];
+
 
 const imageLightOptions: DropdownOption[] = [
     { text: '2017 Ara', value: 'https://images.commerce7.com/brooks/images/medium/brooks-riesling-ara-2017-1581624827943.png' },
-];
-
-const widthOptions = [
-    { text: 'width', value: 'auto' },
-];
-
-const heightOptions = [
-    { text: 'height', value: 'auto' },
-    { text: '1000', value: '1000' },
-    { text: '700', value: '700' },
-    { text: '600', value: '600' },
 ];
 
 interface AppState extends ParsedRequest {
@@ -147,8 +134,6 @@ interface AppState extends ParsedRequest {
     showToast: boolean;
     messageToast: string;
     selectedImageIndex: number;
-    widths: string[];
-    heights: string[];
     overrideUrl: URL | null;
 }
 
@@ -169,27 +154,17 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         text = '2017 Ara Riesling',
-        images=[imageLightOptions[0].value],
-        widths=[],
-        heights=[],
+        layout = 'wine',
+        image= imageLightOptions[0].value,
         showToast = false,
         messageToast = '',
         loading = true,
-        selectedImageIndex = 0,
         overrideUrl = null,
     } = state;
-    const imageOptions = imageLightOptions;
+
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
-    for (let image of images) {
-        url.searchParams.append('images', image);
-    }
-    for (let width of widths) {
-        url.searchParams.append('widths', width);
-    }
-    for (let height of heights) {
-        url.searchParams.append('heights', height);
-    }
+    url.searchParams.append('image', image);
 
     return H('div',
         { className: 'split' },
@@ -205,7 +180,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Text Input',
+                    label: 'Title',
                     input: H(TextInput, {
                         value: text,
                         oninput: (val: string) => {
@@ -216,41 +191,21 @@ const App = (_: any, state: AppState, setState: SetState) => {
                 }),
                 H(Field, {
                     label: 'Image',
-                    input: H('div',
-                        H(Dropdown, {
-                            options: imageOptions,
-                            value: imageOptions[selectedImageIndex].value,
-                            onchange: (val: string) =>  {
-                                let clone = [...images];
-                                clone[0] = val;
-                                const selected = imageOptions.map(o => o.value).indexOf(val);
-                                setLoadingState({ images: clone, selectedImageIndex: selected });
-                            }
-                        }),
-                        H('div',
-                            { className: 'field-flex' },
-                            H(Dropdown, {
-                                options: widthOptions,
-                                value: widths[0],
-                                small: true,
-                                onchange: (val: string) =>  {
-                                    let clone = [...widths];
-                                    clone[0] = val;
-                                    setLoadingState({ widths: clone });
-                                }
-                            }),
-                            H(Dropdown, {
-                                options: heightOptions,
-                                value: heights[0],
-                                small: true,
-                                onchange: (val: string) =>  {
-                                    let clone = [...heights];
-                                    clone[0] = val;
-                                    setLoadingState({ heights: clone });
-                                }
-                            })
-                        )
-                    ),
+                    input: H(TextInput, {
+                        value: image,
+                        oninput: (val: string) => {
+                            console.log('oninput ' + val);
+                            setLoadingState({ image: val, overrideUrl: url });
+                        }
+                    })
+                }),
+                H(Field, {
+                    label: 'Layout',
+                    input: H(Dropdown, {
+                        options: layoutType,
+                        value: layout,
+                        onchange: (val: Layout) => setLoadingState({ layout: val })
+                    })
                 }),
             )
         ),

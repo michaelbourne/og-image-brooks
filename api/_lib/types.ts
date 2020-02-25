@@ -1,10 +1,9 @@
 export type FileType = 'png' | 'jpeg';
-export type Theme = 'light' | 'dark';
+export type Layout = 'wine' | 'general' | 'collection';
 
 export interface ParsedRequest {
     fileType: FileType;
     text: string;
-    images: string[];
-    widths: string[];
-    heights: string[];
+    layout: string;
+    image: string;
 }

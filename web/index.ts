@@ -128,9 +128,7 @@ const fileTypeOptions: DropdownOption[] = [
 
 
 const imageLightOptions: DropdownOption[] = [
-    { text: 'ZEIT', value: 'https://assets.zeit.co/image/upload/front/assets/design/zeit-black-triangle.svg' },
-    { text: 'Next.js', value: 'https://assets.zeit.co/image/upload/front/assets/design/nextjs-black-logo.svg' },
-    { text: 'Hyper', value: 'https://assets.zeit.co/image/upload/front/assets/design/hyper-color-logo.svg' },
+    { text: '2017 Ara', value: 'https://images.commerce7.com/brooks/images/medium/brooks-riesling-ara-2017-1581624827943.png' },
 ];
 
 const widthOptions = [

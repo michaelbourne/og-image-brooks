@@ -4,11 +4,8 @@ import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
 
 const big = readFileSync(`${__dirname}/../_fonts/modesto-open.woff2`).toString('base64');
-const bgimage = readFileSync(`${__dirname}/../_images/lightpaperfibers.png`).toString('base64');
 
 function getCss() {
-    let background = 'white';
-
     return `
     @font-face {
         font-family: 'Modesto Open';
@@ -18,9 +15,9 @@ function getCss() {
     }
 
     body {
-        background: ${background};
-        background-image: url(${bgimage});
+        background-image: url('https://wordpress-350678-1086447.cloudwaysapps.com/wp-content/themes/brooks-wine/images/lightpaperfibers.png);
         background-repeat: repeat;
+        background-size: auto;
         height: 100vh;
         display: flex;
         text-align: center;

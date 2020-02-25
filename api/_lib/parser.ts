@@ -35,7 +35,7 @@ function getArray(stringOrArray: string[] | string): string[] {
 }
 
 function getDefaultImages(images: string[]): string[] {
-    if (images.length > 0 && images[0] && images[0].startsWith('https://assets.zeit.co/image/upload/front/assets/design/')) {
+    if (images.length > 0) {
         return images;
     }
     return ['https://images.commerce7.com/brooks/images/medium/brooks-riesling-ara-2017-1581624827943.png'];

@@ -204,7 +204,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     input: H(Dropdown, {
                         options: layoutType,
                         value: layout,
-                        onchange: (val: Layout) => setLoadingState({ layout: val })
+                        onchange: setLoadingState({ layout: layout })
                     })
                 }),
             )

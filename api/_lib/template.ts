@@ -28,26 +28,25 @@ function getCss() {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right;
-        height: 56vh;
+        height: 60vh;
         width: 100vw;
         position: absolute;
-        top: 10vh;
+        top: 5vh;
         right: 0;
         z-index: 1;
-        opacity: .6;
+        opacity: .4;
     }
 
     .og {
         position: absolute;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        bottom: 0;
         width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-end;
+        justify-content: space-around;
     }
 
     .image-wrapper {
@@ -61,7 +60,7 @@ function getCss() {
     }
 
     .heading {
-        flex: 0 1 73%;
+        flex: 0 1 68%;
     }
     .heading p {
         font-family: 'Modesto Open', serif;

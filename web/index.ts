@@ -140,8 +140,6 @@ const heightOptions = [
     { text: '1000', value: '1000' },
     { text: '700', value: '700' },
     { text: '600', value: '600' },
-    { text: '450', value: '450' },
-    { text: '350', value: '350' },
 ];
 
 interface AppState extends ParsedRequest {
@@ -170,7 +168,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     };
     const {
         fileType = 'png',
-        text = 'Hello World',
+        text = '2017 Ara Riesling',
         images=[imageLightOptions[0].value],
         widths=[],
         heights=[],

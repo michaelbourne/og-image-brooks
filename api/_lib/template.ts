@@ -41,10 +41,10 @@ function getCss() {
     .heading {
         flex: 0 1 60%;
         font-family: 'Modesto Open', serif;
-        font-size: 110px;
+        font-size: 116px;
         font-style: normal;
         color: #981C20;
-        line-height: 1.6;
+        line-height: 1.15;
         letter-spacing: 0.03em;
         text-transform: uppercase;
         font-kerning: none;
@@ -77,7 +77,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '225') {
+function getImage(src: string, width ='auto', height = '1300') {
     return `<img
         class="logo"
         alt="Generated Image"

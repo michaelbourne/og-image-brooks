@@ -64,17 +64,14 @@ function getCss(layout = 'wine') {
             align-items: flex-end;
             justify-content: space-around;
         }
-
         .image-wrapper {
             flex: 0 1 25%;
             text-align: center;
         }
-
         .image-wrapper img {
             width: 100%;
             height: auto;
         }
-
         .heading {
             flex: 0 1 68%;
         }
@@ -90,18 +87,15 @@ function getCss(layout = 'wine') {
             align-items: center;
             justify-content: center;
         }
-
         .image-wrapper {
             display: block;
             margin: 0 auto 5vh;
             text-align: center;
         }
-
         .image-wrapper img {
             width: auto;
-            height: 220px;
+            height: 400px;
         }
-
         .heading {
             display: block;
             margin: 0 auto;
@@ -109,10 +103,43 @@ function getCss(layout = 'wine') {
         .heading p {
             text-align: center;
         }`;
+    } else if ( 'collection' == layout ) {
+        return `
+        body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-wrapper {
+            display: none;
+        }
+        .heading {
+            display: block;
+            margin: 0 auto;
+        }
+        .heading p {
+            text-align: center;
+        }`
     } 
-    
     else {
-        return '';
+        return `
+        body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-wrapper {
+            display: none;
+        }
+        .heading {
+            display: block;
+            margin: 0 auto;
+        }
+        .heading p {
+            text-align: center;
+        }`
     }
 }
 

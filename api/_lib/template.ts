@@ -41,7 +41,7 @@ function getCss() {
     .heading {
         flex: 0 1 60%;
         font-family: 'Modesto Open', serif;
-        font-size: 80px;
+        font-size: 110px;
         font-style: normal;
         color: #981C20;
         line-height: 1.6;
@@ -49,6 +49,7 @@ function getCss() {
         text-transform: uppercase;
         font-kerning: none;
         text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+        text-align: left;
     }`;
 }
 

@@ -38,5 +38,5 @@ function getDefaultImages(images: string[]): string[] {
     if (images.length > 0) {
         return images;
     }
-    return ['https://images.commerce7.com/brooks/images/medium/brooks-riesling-ara-2017-1581624827943.png'];
+    return ['https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png'];
 }

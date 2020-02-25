@@ -84,31 +84,30 @@ function getCss(layout = 'wine') {
         }`;
     } else if ( 'general' == layout ) {
         return `
-        .og {
-            width: 100%;
+        body {
             display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
         }
 
         .image-wrapper {
-            flex: 0 1 25%;
+            display: block;
+            margin: 0 auto 5vh;
             text-align: center;
         }
 
         .image-wrapper img {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 220px;
         }
 
         .heading {
-            flex: 0 1 68%;
+            display: block;
+            margin: 0 auto;
         }
         .heading p {
             text-align: center;
-            margin-bottom: 5vh;
         }`;
     } 
     

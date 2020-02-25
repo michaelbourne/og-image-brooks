@@ -133,23 +133,14 @@ const imageLightOptions: DropdownOption[] = [
 
 const widthOptions = [
     { text: 'width', value: 'auto' },
-    { text: '50', value: '50' },
-    { text: '100', value: '100' },
-    { text: '150', value: '150' },
-    { text: '200', value: '200' },
-    { text: '250', value: '250' },
-    { text: '300', value: '300' },
-    { text: '350', value: '350' },
 ];
 
 const heightOptions = [
     { text: 'height', value: 'auto' },
-    { text: '50', value: '50' },
-    { text: '100', value: '100' },
-    { text: '150', value: '150' },
-    { text: '200', value: '200' },
-    { text: '250', value: '250' },
-    { text: '300', value: '300' },
+    { text: '1000', value: '1000' },
+    { text: '700', value: '700' },
+    { text: '600', value: '600' },
+    { text: '450', value: '450' },
     { text: '350', value: '350' },
 ];
 

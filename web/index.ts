@@ -1,4 +1,4 @@
-import { ParsedRequest, Theme, FileType } from '../api/_lib/types';
+import { ParsedRequest, FileType } from '../api/_lib/types';
 const { H, R, copee } = (window as any);
 let timeout = -1;
 
@@ -120,38 +120,17 @@ const Toast = ({ show, message }: ToastProps) => {
     );
 }
 
-const themeOptions: DropdownOption[] = [
-    { text: 'Light', value: 'light' },
-    { text: 'Dark', value: 'dark' },
-];
 
 const fileTypeOptions: DropdownOption[] = [
     { text: 'PNG', value: 'png' },
     { text: 'JPEG', value: 'jpeg' },
 ];
 
-const fontSizeOptions: DropdownOption[] = Array
-    .from({ length: 10 })
-    .map((_, i) => i * 25)
-    .filter(n => n > 0)
-    .map(n => ({ text: n + 'px', value: n + 'px' }));
-
-const markdownOptions: DropdownOption[] = [
-    { text: 'Plain Text', value: '0' },
-    { text: 'Markdown', value: '1' },
-];
 
 const imageLightOptions: DropdownOption[] = [
     { text: 'ZEIT', value: 'https://assets.zeit.co/image/upload/front/assets/design/zeit-black-triangle.svg' },
     { text: 'Next.js', value: 'https://assets.zeit.co/image/upload/front/assets/design/nextjs-black-logo.svg' },
     { text: 'Hyper', value: 'https://assets.zeit.co/image/upload/front/assets/design/hyper-color-logo.svg' },
-];
-
-const imageDarkOptions: DropdownOption[] = [
-
-    { text: 'ZEIT', value: 'https://assets.zeit.co/image/upload/front/assets/design/zeit-white-triangle.svg' },
-    { text: 'Next.js', value: 'https://assets.zeit.co/image/upload/front/assets/design/nextjs-white-logo.svg' },
-    { text: 'Hyper', value: 'https://assets.zeit.co/image/upload/front/assets/design/hyper-bw-logo.svg' },
 ];
 
 const widthOptions = [
@@ -202,9 +181,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
     };
     const {
         fileType = 'png',
-        fontSize = '100px',
-        theme = 'light',
-        md = true,
         text = '**Hello** World',
         images=[imageLightOptions[0].value],
         widths=[],
@@ -215,13 +191,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
         selectedImageIndex = 0,
         overrideUrl = null,
     } = state;
-    const mdValue = md ? '1' : '0';
-    const imageOptions = theme === 'light' ? imageLightOptions : imageDarkOptions;
+    const imageOptions = imageLightOptions;
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
-    url.searchParams.append('theme', theme);
-    url.searchParams.append('md', mdValue);
-    url.searchParams.append('fontSize', fontSize);
     for (let image of images) {
         url.searchParams.append('images', image);
     }
@@ -238,40 +210,11 @@ const App = (_: any, state: AppState, setState: SetState) => {
             { className: 'pull-left' },
             H('div',
                 H(Field, {
-                    label: 'Theme',
-                    input: H(Dropdown, {
-                        options: themeOptions,
-                        value: theme,
-                        onchange: (val: Theme) => {
-                            const options = val === 'light' ? imageLightOptions : imageDarkOptions
-                            let clone = [...images];
-                            clone[0] = options[selectedImageIndex].value;
-                            setLoadingState({ theme: val, images: clone });
-                        }
-                    })
-                }),
-                H(Field, {
                     label: 'File Type',
                     input: H(Dropdown, {
                         options: fileTypeOptions,
                         value: fileType,
                         onchange: (val: FileType) => setLoadingState({ fileType: val })
-                    })
-                }),
-                H(Field, {
-                    label: 'Font Size',
-                    input: H(Dropdown, {
-                        options: fontSizeOptions,
-                        value: fontSize,
-                        onchange: (val: string) => setLoadingState({ fontSize: val })
-                    })
-                }),
-                H(Field, {
-                    label: 'Text Type',
-                    input: H(Dropdown, {
-                        options: markdownOptions,
-                        value: mdValue,
-                        onchange: (val: string) => setLoadingState({ md: val === '1' })
                     })
                 }),
                 H(Field, {

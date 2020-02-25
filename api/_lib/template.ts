@@ -94,7 +94,7 @@ function getCss(layout = 'wine') {
         }
         .image-wrapper img {
             width: auto;
-            height: 400px;
+            height: 500px;
         }
         .heading {
             display: block;

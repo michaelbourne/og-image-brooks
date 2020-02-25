@@ -185,7 +185,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     input: H(TextInput, {
                         value: text,
                         oninput: (val: string) => {
-                            console.log('oninput ' + val);
                             setLoadingState({ text: val, overrideUrl: url });
                         }
                     })
@@ -195,7 +194,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     input: H(TextInput, {
                         value: image,
                         oninput: (val: string) => {
-                            console.log('oninput ' + val);
                             setLoadingState({ image: val, overrideUrl: url });
                         }
                     })
@@ -205,7 +203,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     input: H(Dropdown, {
                         options: layoutType,
                         value: layout,
-                        onchange: setLoadingState({ layout: layout })
+                        onchange: (val: string) => {
+                            setLoadingState({ layout: val, overrideUrl: url });
+                        }
                     })
                 }),
             )

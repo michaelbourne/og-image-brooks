@@ -19,10 +19,7 @@ function getCss() {
         background-repeat: repeat;
         background-size: auto;
         height: 100vh;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
+        overflow: hidden;
     }
 
     body:before {
@@ -41,10 +38,15 @@ function getCss() {
     }
 
     .og {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-between;
     }
 
@@ -61,7 +63,7 @@ function getCss() {
     .heading {
         flex: 0 1 67%;
     }
-    h1 {
+    .heading p {
         font-family: 'Modesto Open', serif;
         font-size: 130px;
         font-style: normal;
@@ -94,7 +96,7 @@ export function getHtml(parsedReq: ParsedRequest) {
                 ).join('')}
             </div>
 
-            <div class="heading"><h1>${sanitizeHtml(text)}</h1></div>
+            <div class="heading"><p>${sanitizeHtml(text)}</p></div>
         </div>
     </body>
 </html>`;

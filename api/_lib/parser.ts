@@ -18,8 +18,8 @@ export function parseRequest(req: IncomingMessage) {
         extension = arr.pop() as string;
         text = arr.join('.');
     }
-    let image2: string = image;
-    let layout2: string = layout;
+    let image2: string = image as string;
+    let layout2: string = layout as string;
 
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',

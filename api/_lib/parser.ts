@@ -22,24 +22,9 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        image: image,
-        layout: layout,
+        image: image || 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png',
+        layout: layout || 'wine',
     };
-    parsedRequest.image = getDefaultImages(parsedRequest.image);
-    parsedRequest.layout = getDefaultLayout(parsedRequest.layout);
+
     return parsedRequest;
-}
-
-function getDefaultImages(image: string): string {
-    if (image !== '') {
-        return image;
-    }
-    return 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png';
-}
-
-function getDefaultLayout(layout: string): string {
-    if (layout !== '') {
-        return 'wine';
-    }
-    return layout;
 }

@@ -18,12 +18,14 @@ export function parseRequest(req: IncomingMessage) {
         extension = arr.pop() as string;
         text = arr.join('.');
     }
+    let image2: string = image;
+    let layout2: string = layout;
 
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        image: image || 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png',
-        layout: layout || 'wine',
+        image: image2 || 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png',
+        layout: layout2 || 'wine',
     };
 
     return parsedRequest;

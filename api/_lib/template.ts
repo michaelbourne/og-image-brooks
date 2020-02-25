@@ -25,6 +25,21 @@ function getCss() {
         justify-content: center;
     }
 
+    body:before {
+        content: '';
+        background: url('https://wordpress-350678-1086447.cloudwaysapps.com/wp-content/themes/brooks-wine/images/brooks-logo-watermark.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+        height: 56vh;
+        width: 100vw;
+        position: absolute;
+        top: 10vh;
+        right: 0;
+        z-index: 1;
+        opacity: .6;
+    }
+
     .og {
         display: flex;
         flex-direction: row;
@@ -37,7 +52,7 @@ function getCss() {
         flex: 0 1 35%;
         text-align: center;
     }
-   
+
     .heading {
         flex: 0 1 60%;
         font-family: 'Modesto Open', serif;

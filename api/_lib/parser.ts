@@ -22,10 +22,11 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        image: decodeURIComponent(image) as string,
-        layout: decodeURIComponent(layout) as string,
+        image: image,
+        layout: layout,
     };
     parsedRequest.image = getDefaultImages(parsedRequest.image);
+    parsedRequest.layout = getDefaultLayout(parsedRequest.layout);
     return parsedRequest;
 }
 
@@ -34,4 +35,11 @@ function getDefaultImages(image: string): string {
         return image;
     }
     return 'https://images.commerce7.com/brooks/images/original/brooks-riesling-ara-2017-1581624827943.png';
+}
+
+function getDefaultLayout(layout: string): string {
+    if (layout !== '') {
+        return 'wine';
+    }
+    return layout;
 }

@@ -15,7 +15,7 @@ function getCss() {
     }
 
     body {
-        background-image: url('https://wordpress-350678-1086447.cloudwaysapps.com/wp-content/themes/brooks-wine/images/lightpaperfibers.png);
+        background-image: url('https://wordpress-350678-1086447.cloudwaysapps.com/wp-content/themes/brooks-wine/images/lightpaperfibers.png');
         background-repeat: repeat;
         background-size: auto;
         height: 100vh;

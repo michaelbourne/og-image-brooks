@@ -64,7 +64,7 @@ function getCss() {
     }
     .heading p {
         font-family: 'Modesto Open', serif;
-        font-size: 130px;
+        font-size: 140px;
         font-style: normal;
         color: #981C20;
         line-height: 1.15;

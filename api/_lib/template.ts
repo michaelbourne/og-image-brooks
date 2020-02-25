@@ -51,7 +51,7 @@ function getCss() {
     }
 
     .image-wrapper {
-        flex: 0 1 30%;
+        flex: 0 1 25%;
         text-align: center;
     }
 
@@ -61,7 +61,7 @@ function getCss() {
     }
 
     .heading {
-        flex: 0 1 67%;
+        flex: 0 1 73%;
     }
     .heading p {
         font-family: 'Modesto Open', serif;

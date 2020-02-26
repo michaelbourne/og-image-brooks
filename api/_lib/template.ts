@@ -15,7 +15,7 @@ function getBaseCss() {
     }
 
     body {
-        background-image: url('https://wordpress-350678-1086447.cloudwaysapps.com/wp-content/themes/brooks-wine/images/lightpaperfibers.png');
+        background-image: url('https://www.brookswines.com/wp-content/themes/brooks-wine/images/lightpaperfibers.png');
         background-repeat: repeat;
         background-size: auto;
         height: 100vh;
@@ -24,7 +24,7 @@ function getBaseCss() {
 
     body:before {
         content: '';
-        background: url('https://wordpress-350678-1086447.cloudwaysapps.com/wp-content/themes/brooks-wine/images/brooks-logo-watermark.png');
+        background: url('https://www.brookswines.com/wp-content/themes/brooks-wine/images/brooks-logo-watermark.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right;

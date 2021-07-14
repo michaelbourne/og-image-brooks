@@ -126,7 +126,7 @@ const layoutType: DropdownOption[] = [
 
 
 const imageLightOptions: DropdownOption[] = [
-    { text: '2017 Ara', value: 'https://images.commerce7.com/brooks/images/medium/brooks-riesling-ara-2017-1581624827943.png' },
+    { text: '2017 Ara', value: 'https://images.commerce7.com/brooks/images/large/brooks-riesling-ara-2017-1581624827943.png' },
 ];
 
 interface AppState extends ParsedRequest {

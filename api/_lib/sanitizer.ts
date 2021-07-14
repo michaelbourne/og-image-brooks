@@ -1,5 +1,5 @@
 const entityMap: { [key: string]: string } = {
-    "&": "&amp;",
+    "&": "&",
     "<": "&lt;",
     ">": "&gt;",
     '"': '&quot;',

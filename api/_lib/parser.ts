@@ -5,9 +5,9 @@ import { ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { image, layout } = query;
+    const { image, layout } = (query || {});
   
-    const arr = pathname.slice(1).split('.');
+    const arr = (pathname || '/').slice(1).split('.');
     let extension = '';
     let text = '';
     if (arr.length === 0) {

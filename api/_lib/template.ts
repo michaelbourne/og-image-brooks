@@ -48,9 +48,8 @@ function getBaseCss() {
 
     .heading p {
         font-family: 'Reckless Neue', serif;
-        font-size: 140px;
+        font-size: 120px;
         font-style: normal;
-        color: #981C20;
         line-height: 1.15;
         letter-spacing: 0.03em;
         text-transform: uppercase;

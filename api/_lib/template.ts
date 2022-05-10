@@ -29,6 +29,7 @@ function getBaseCss() {
         height: 100vh;
         overflow: hidden;
         font-family: 'Basis Grotesque', sans-serif;
+        color: #2b2824;
     }
 
     body:before {
@@ -64,27 +65,35 @@ function getCss(layout = 'wine') {
             position: absolute;
             left: 0;
             bottom: 0;
+            right:
+            bottom: 0;
             width: 100%;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
-            align-items: flex-end;
-            justify-content: space-around;
+            align-items: stretch;
+            justify-content: center;
         }
         .image-wrapper {
-            flex: 0 1 25%;
+            flex: 0 1 50%;
             text-align: center;
         }
         .image-wrapper img {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 100%;
         }
         .heading {
-            flex: 0 1 68%;
+            flex: 0 1 50%;
+            background: #fff;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 3vh;
         }
         .heading p {
             text-align: left;
-            margin-bottom: 10vh;
         }`;
     } else if ( 'general' == layout ) {
         return `
@@ -175,7 +184,6 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="image-wrapper">
                 ${getImage(image)}
             </div>
-
             <div class="heading"><p>${sanitizeHtml(text)}</p></div>
         </div>
     </body>

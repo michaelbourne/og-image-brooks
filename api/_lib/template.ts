@@ -63,9 +63,10 @@ function getCss(layout = 'wine') {
         return `
         .og {
             position: absolute;
+            top: 0;
             left: 0;
             bottom: 0;
-            right:
+            right: 0;
             bottom: 0;
             width: 100%;
             display: flex;

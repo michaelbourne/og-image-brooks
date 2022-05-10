@@ -11,7 +11,7 @@ function getBaseCss() {
     @font-face {
         font-family: 'Reckless Neue';
         font-style:  normal;
-        font-weight: normal;
+        font-weight: 300;
         src: url(data:font/woff2;charset=utf-8;base64,${big}) format('woff2');
     }
     @font-face {
@@ -28,7 +28,7 @@ function getBaseCss() {
         background-color: #F6F4F0;
         height: 100vh;
         overflow: hidden;
-        font-family: 'Basis Grotesque', serif;
+        font-family: 'Basis Grotesque', sans-serif;
     }
 
     body:before {
@@ -50,6 +50,7 @@ function getBaseCss() {
         font-family: 'Reckless Neue', serif;
         font-size: 140px;
         font-style: normal;
+        font-weight: 300;
         line-height: 1.15;
         letter-spacing: -0.0175em;
         font-kerning: none;

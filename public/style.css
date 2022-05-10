@@ -1,21 +1,73 @@
-body {
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    margin: 20px;
+:root {
+    font-size: 18px
 }
+
+@media screen and (min-width: 400px) {
+    :root {
+        font-size:calc(18px + 10 * ((100vw - 400px)/ 1520))
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    :root {
+        font-size:28px
+    }
+}
+
+body {
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
+  margin: 20px;
+  overflow-x: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fcfcfc;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  color: #160e1f;
+  font-weight: 400;
+  line-height: 1.5;
+  background: #faf7f0;
+}
+
+.site-title {
+    color: #160e1f;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin: 0 0 0 .3rem;
+    letter-spacing: -.025em;
+    line-height: 0;
+    display: block;
+}
+
+.custom-logo-link {
+    display: flex;
+    align-items: baseline;
+    width: fit-content;
+    text-decoration: none;
+}
+.custom-logo-link img {
+    display: block;
+    width: 1.5rem;
+    max-width: 15vw;
+}
+
 
 a {
     cursor: pointer;
     color: #0076FF;
     text-decoration: none;
     transition: all 0.2s ease;
-    border-bottom: 1px solid white;
 }
 
-a:hover {
-    border-bottom: 1px solid #0076FF;
-}
 
 footer {
+    opacity: 0.5;
     font-size: 0.8em;
 }
 
@@ -23,10 +75,23 @@ footer {
     text-align: center;
 }
 
+h1 {
+    margin-bottom: 3rem;
+}
+
 .container {
+    margin: 0;
+}
+
+.wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .split {
@@ -72,7 +137,7 @@ button {
     line-height: 0;
 
     height: 24px;
-    width: 100px;
+    width: calc(100% + 2px);
     padding: 0 10px;
     font-size: 12px;
     background: #fff;
@@ -96,6 +161,7 @@ button:hover {
     transition: border 0.2s ease,color 0.2s ease;
     vertical-align: middle;
     width: 100%;
+    background-color: #fff;
 }
 
 .input-outer-wrapper:hover {
@@ -174,19 +240,34 @@ button:hover {
     width: 22px;
 }
 
+.svg {
+  fill: #151513;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
 select {
     height: 100%;
     border: none;
     box-shadow: none;
-    background: transparent;
+    background: #fff;
     background-image: none;
     color: #000;
     line-height: 40px;
     font-size: 14px;
     margin-right: -20px;
     width: calc(100% + 20px);
-    padding: 0 76px 0 16px;
+    padding: 0 0 0 16px;
     text-transform: none;
+}
+input {
+    background: #fff;
+}
+
+.field {
+    margin: 0 1rem 19px 0;
 }
 
 .field-flex {
@@ -194,15 +275,12 @@ select {
     margin-top: 10px;
 }
 
-.field-value {
-    margin: 10px 80px;
-}
-
 .field-label {
     display: inline-block;
-    width: 100px;
+    width: 150px;
     margin-right: 20px;
     text-align: right;
+    font-size: 16px;
 }
 
 .field-value {
@@ -269,17 +347,13 @@ img {
     display: block;
     cursor: pointer;
     text-decoration: none;
-    background: #fff;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.12);
-    border-radius: 5px;
     margin-bottom: 50px;
     transition: all 0.2s ease;
     max-width: 100%;
 }
 
 .image-wrapper:hover {
-    box-shadow: 0 1px 16px rgba(0,0,0,0.1);
-    border-color: #ddd;
+    border: none;
 }
 
 
@@ -287,6 +361,9 @@ img {
     .field {
         margin: 20px 10px;
     }
+    .pull-left {
+          margin-left: 1.5em;
+        }
 }
 
 @media (max-width: 900px) {
@@ -300,17 +377,14 @@ img {
     }
 }
 
-.github-corner:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
-}
 
-@keyframes octocat-wave {
-    0%,100% { transform:rotate(0) }
-    20%,60% { transform:rotate(-25deg) }
-    40%,80% { transform:rotate(10deg) }
+@media (max-width: 500px) {
+  .svg {
+    right: -33%;
+  }
 }
-
-@media (max-width:500px) {
-    .github-corner:hover .octo-arm { animation:none }
-    .github-corner .octo-arm { animation:octocat-wave 560ms ease-in-out }
+@media (max-width: 360px) {
+  .svg {
+    right: -52%;
+  }
 }

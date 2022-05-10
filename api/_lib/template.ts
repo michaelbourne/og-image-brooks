@@ -3,28 +3,37 @@ import { readFileSync } from 'fs';
 import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
 
-const big = readFileSync(`${__dirname}/../_fonts/modesto-open.woff2`).toString('base64');
+const big = readFileSync(`${__dirname}/../_fonts/recklessneue-light.woff2`).toString('base64');
+const small = readFileSync(`${__dirname}/../_fonts/basis-grotesque-regular-pro.woff2`).toString('base64');
 
 function getBaseCss() {
     return `
     @font-face {
-        font-family: 'Modesto Open';
+        font-family: 'Reckless Neue';
         font-style:  normal;
         font-weight: normal;
         src: url(data:font/woff2;charset=utf-8;base64,${big}) format('woff2');
     }
+    @font-face {
+        font-family: 'Basis Grotesque';
+        font-style:  normal;
+        font-weight: normal;
+        src: url(data:font/woff2;charset=utf-8;base64,${small}) format('woff2');
+    }
 
     body {
-        background-image: url('https://www.brookswines.com/wp-content/themes/brooks-wine/images/lightpaperfibers.png');
+        background-image: url('https://www.brookswines.com/wp-content/themes/brooks-wine-2022/images/lightpaperfibers.png');
         background-repeat: repeat;
         background-size: auto;
+        background-color: #F6F4F0;
         height: 100vh;
         overflow: hidden;
+        font-family: 'Basis Grotesque', serif;
     }
 
     body:before {
         content: '';
-        background: url('https://www.brookswines.com/wp-content/themes/brooks-wine/images/brooks-logo-watermark.png');
+        background: url('https://www.brookswines.com/wp-content/themes/brooks-wine-2022/images/brooks-logo-watermark.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right;
@@ -38,7 +47,7 @@ function getBaseCss() {
     }
 
     .heading p {
-        font-family: 'Modesto Open', serif;
+        font-family: 'Reckless Neue', serif;
         font-size: 140px;
         font-style: normal;
         color: #981C20;

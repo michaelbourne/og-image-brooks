@@ -22,7 +22,7 @@ function getBaseCss() {
     }
 
     body {
-        background-image: url('https://www.brookswines.com/wp-content/themes/brooks-wine-2022/images/lightpaperfibers.png');
+        background-image: url('https://www.brookswine.com/wp-content/themes/brooks-wine-2022/images/lightpaperfibers.png');
         background-repeat: repeat;
         background-size: auto;
         background-color: #F6F4F0;
@@ -33,7 +33,7 @@ function getBaseCss() {
 
     body:before {
         content: '';
-        background: url('https://www.brookswines.com/wp-content/themes/brooks-wine-2022/images/brooks-logo-watermark.png');
+        background: url('https://www.brookswine.com/wp-content/themes/brooks-wine-2022/images/brooks-logo-watermark.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right;
@@ -48,13 +48,11 @@ function getBaseCss() {
 
     .heading p {
         font-family: 'Reckless Neue', serif;
-        font-size: 120px;
+        font-size: 140px;
         font-style: normal;
         line-height: 1.15;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
+        letter-spacing: -0.0175em;
         font-kerning: none;
-        text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     }`;
 }
 

@@ -133,6 +133,9 @@ function getCss(layout = 'wine') {
         }
         .heading p {
             text-align: center;
+        }
+        .logo {
+            display: block;
         }`;
     } else if ( 'collection' == layout ) {
         return `
@@ -182,6 +185,9 @@ function getCss(layout = 'wine') {
         }
         .heading p {
             text-align: center;
+        }
+        .logo {
+            display: block;
         }`
     }
 }
